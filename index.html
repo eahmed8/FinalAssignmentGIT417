@@ -1,175 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="images/x-icon" href="PAwfectPals.png">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--[if lt IE 9]><script src=”http://html5shim.googlecode.com/svn/trunk/html5.js”></script><![end if]-->
-        <script src="javascript.js" defer></script>
-        <title>Pawfect Pals</title>
-    </head>
-    <!--Images are from Pexles and Vecteezy logos are from Canva-->
-    <body>
-        <a href="#skip-content" id="skipContent">Skip<br>Content</a>
 
-        <button id="clickme" onclick="toggleImage(); toggleMode();"><img src="sunnynew.png" id="image" alt="activate light and dark mode with these icons." width="75" height="75"></button>
-        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawfect Pals</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="PAwfectPals.png">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    <script src="javascript.js" defer></script>
+</head>
 
-        <header>
-            <a href="index.html"><img src="PAwfectPals.png" alt="a puppy in a basket with pawfect pals written below it" width="350" height="150"></a>
-                <nav>
-                    <h1>Main Navigation</h1>
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#Puppies">Puppies</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-        </header>
+<body>
+    <a href="#skip-content" id="skipContent">Skip Content</a>
 
-        <img src="puppybanner1.jpg" alt="A trunk full of  golden lab puppies" class="headerImage">
+    <button id="clickme"><img src="sunnynew.png" id="image" alt="Light and Dark Mode" width="75" height="75"></button>
 
+    <header>
+        <a href="#"><img src="PAwfectPals.png" alt="Pawfect Pals Logo" width="350" height="150"></a>
+        <nav>
+            <h1>Main Navigation</h1>
+            <ul>
+                <li><a href="#about" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#puppies">Puppies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <img src="puppybanner1.jpg" alt="Golden Lab Puppies in Car" class="headerImage">
+
+    <main>
         <section id="about">
-            <h2 class="tagline">Welcome your furry friend home!</h2>
+            <h2>Welcome Your Furry Friend Home!</h2>
+            <div class="tabs">
+                <ul>
+                    <li><a href="#tab-1">Our Mission</a></li>
+                    <li><a href="#tab-2">Adoptable Puppies</a></li>
+                </ul>
+                <div id="tab-1">
+                    <p>We are dedicated to rescuing, rehabilitating, and rehoming puppies in need.</p>
+                </div>
+                <div id="tab-2">
+                    <p>Meet Buttercup, Blossom, and Carmel ready for adoption!</p>
+                </div>
+            </div>
         </section>
 
-        <main>
-            <section class="about">
-                <h2>Our Mission</h2>
-                <img src="puppybanner.jpg" alt="Black and white dalmation puppies in a basket." width="500">
-                <p>We are dedicated to helping every pup find their fur-ever home. Our mission is to rescue, rehabilitate, and rehome puppies in need, giving them a second chance at a happy life. At Pawfect Pals, every wagging tail deserves a loving family!.</p>
-                <p>Our organization believes in responsible pet ownership, and we strive to provide all of our adoptees with the support and care they need to thrive in their new homes. We charge a minimum rehoming fee.</p>
-            </section>
+        <section class="puppies" id="puppies">
+            <h2>Meet Our Puppies</h2>
+            <div class="slideshow">
+                <div><img src="puppy1.jpg" alt="Puppy 1"></div>
+                <div><img src="puppy2.jpg" alt="Puppy 2"></div>
+                <div><img src="puppy3.jpg" alt="Puppy 3"></div>
+            </div>
+        </section>
 
-            <section class="discount">
-                <h2>Feeling Lucky??</h2>
-                <p>Click on the button to see if you get a discount on the fee!</p>
-            
-                <form class="guessingGame" id="guessingGame">
-                    <label for="userDisplay">Pick a number between 1 and 10.</label>
-                    <input type="text" name="numberInput" id="userDisplay" required>
-                    
-                    <div id="message"></div>
-                    
-                    <input type="submit" id="submitButton" value="See If You Won" onclick="randomNum()">
-                </form>
-            </section>
+        
 
-            <section class="puppies" id="puppies">
-                <h2>Meet our pupps!</h2>
-                    <section class="section1">
-                        <h3>Buttercup</h3>
-                        <img src="puppy1.jpg" alt="golden and white lasa apso." width="450" height="450">
-                        <p >Lasa Apso. Buttercup is six weeks old and is fun and playful .</p>
-                    
-                    </section>
+        <section class="discount">
+            <h2>Feeling Lucky?</h2>
+            <form id="guessingGame">
+                <label for="userDisplay">Pick a number (1-10):</label>
+                <input type="text" id="userDisplay" required>
+                <button type="submit" id="submitButton">Try Your Luck</button>
+                <div id="message"></div>
+            </form>
+        </section>
 
-                    <section class="section2">
-                        <h3>Blossom</h3>
-                        <img src="puppy2.jpg" alt="Black and white shih tzu puppy" width="450" height="450">
-                        <p>Blossom is a black and white 4 weeks old shih tzu and is extremely adorable... you will fall in live with her.</p>
-                    </section>
-
-                    <section class="section3">
-                        <h3>Carmel</h3>
-                        <img src="puppy3.jpg" alt="A tan Shiba Inu sitting on a mat." width="450" height="450">
-                        <p>Carmel is a ten months old Shiba Inu with an electic personality, she is friendly and knows few tricks.</p>
-                    </section>
-
-                    <a href="#">Check availability</a>
-            </section>
-
-             <!-- Product Display Section -->
-    <section class="product-display">
-        <h2>Shop Our Yummy Treats!</h2>
-        <div class="product-controls">
-            <button data-product="product1">Rainbow Cookies</button>
-            <button data-product="product2">Penut Butter Cookies</button>
-            <button data-product="product3">Banana Brittle Cookies</button>
-        </div>
-        <div id="product1" class="product">
-            <h3>Rainbow Cookies</h3>
-            <img src="dogtreats1.jpg" alt="Colored dog's treats in a bowl" width="450" height="450">
-            <p>A scrumptious assortments of rainbow cookies for your furry friend.</p>
-        </div>
-        <div id="product2" class="product hide">
-            <h3>Peanut Butter Cookies</h3>
-            <img src="dogtreat2.jpg" alt="Brown colored cookies" width="450" height="450">
-            <p>Yummylicious,peanut butter cookies.Every dog's dream!!</p>
-        </div>
-        <div id="product3" class="product hide">
-            <h3>Banana Brittle Cookies</h3>
-            <img src="dogtreat3.jpg" alt="Dark brown dog's treats in a bowl" width="450" height="450">
-            <p>Mouth watering banana brittle cookie, that makes all the pets behave.</p>
-        </div>
-    </section>
-            
-        </main>
+        <section class="product-display">
+            <h2>Shop Our Treats</h2>
+            <div class="product-controls">
+                <button data-product="product1">Rainbow Cookies</button>
+                <button data-product="product2">Peanut Butter Cookies</button>
+                <button data-product="product3">Banana Brittle Cookies</button>
+            </div>
+            <div id="product1" class="product">
+                <h3>Rainbow Cookies</h3>
+                <img src="dogtreats1.jpg" alt="Rainbow Cookies">
+            </div>
+            <div id="product2" class="product hide">
+                <h3>Peanut Butter Cookies</h3>
+                <img src="dogtreat2.jpg" alt="Peanut Butter Cookies">
+            </div>
+            <div id="product3" class="product hide">
+                <h3>Banana Brittle Cookies</h3>
+                <img src="dogtreat3.jpg" alt="Banana Brittle Cookies">
+            </div>
+        </section>
+        <section id="dogSection">
+            <h2>See More Cute Pups!</h2>
+            <div id="dogDisplay">Loading...</div>
+            <button id="loadMoreDogs">Load More Puppies</button> <!-- Add this button -->
+        </section>
 
         <section class="contact" id="contact">
             <h2>Contact Us</h2>
-            <p>Whether you have questions as a customer or you're looking to learn more about the adoption and avalibility of the pets as well as fostering them.</p>
             <form id="fullForm" novalidate>
-                <label for="firstName">First Name<span>*</span></label>
-                <input type="text" id="firstName" name="firstName" required>
-                <span class="error-msg"></span>
-            
-                <label for="lastName">Last Name<span>*</span></label>
-                <input type="text" id="lastName" name="lastName" required>
-                <span class="error-msg"></span>
-            
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" required>
+
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" required>
+
                 <label for="phone">Phone Number</label>
-                <input type="text" id="phone" name="phone">
-                <span class="error-msg"></span>
-            
+                <input type="text" id="phone">
+
                 <label for="email">Email Address</label>
-                <input type="text" id="email" name="email">
-                <span class="error-msg"></span>
-            
+                <input type="text" id="email">
+
                 <fieldset>
-                    <legend>Preferred Method of Contact<span>*</span></legend>
+                    <legend>Preferred Contact Method *</legend>
                     <input type="radio" id="selectedPhone" name="preferredMethod" value="Phone">
                     <label for="selectedPhone">Phone</label>
-            
                     <input type="radio" id="selectedEmail" name="preferredMethod" value="Email">
                     <label for="selectedEmail">Email</label>
                 </fieldset>
-                <span class="error-msg"></span>
-            
-                <label for="comments">Comments<span>*</span></label>
+
+                <label for="comments">Comments *</label>
                 <input type="text" id="comments" required>
-                <span class="error-msg"></span>
-            
-                <div id="errorList" class="error-list hide"></div>
-            
-                <input type="submit" id="submit" value="Submit">
+
+                <button type="submit" id="submit">Submit</button>
+                <div id="errorList" class="hide"></div>
             </form>
-            
-            
         </section>
+    </main>
 
-        <footer>
-            <small>Copyright &copy; 2024 - Pawfect Pals</small>
-            <p>Final assignment GIT 417.</p>
-
+    <footer>
+        <div class="footer-container">
             <section class="address">
                 <h4>Address</h4>
-                <p>
-                    1234 Amiens ave<br>
-                    Fremont, CA 94555
-                </p>
+                <p>1234 Amiens Ave<br> Fremont, CA 94555</p>
             </section>
-
+    
             <section class="hours">
                 <h4>Hours</h4>
-                <p>
-                    Monday - Friday: 10am-9pm<br>
-                    Saturday: 11am-3pm<br>
-                    Sunday: CLOSED
-                </p>
+                <p>Mon-Fri: 10am-9pm<br> Sat: 11am-3pm<br> Sun: Closed</p>
             </section>
-        </footer>
-    </body>
-</html>
+    
+            <section class="project">
+                <h4>GIT 418 Final Project</h4>
+                <p>Pawfect Pals</p>
+            </section>
+        </div>
+    
+        <div class="footer-bottom">
+            <small>&copy; 2024 Pawfect Pals. All Rights Reserved.</small>
+        </div>
+    </footer>
+    
+</body>
+
+</html> 
